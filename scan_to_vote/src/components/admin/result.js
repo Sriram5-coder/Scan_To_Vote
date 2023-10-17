@@ -10,7 +10,7 @@ function Result() {
 
   useEffect(() => {
     // Make a GET request to your Express.js server's API endpoint
-    axios.get('https://vote-gijv.onrender.com/team-vote-counts')
+    axios.get('http://localhost:3001/team-vote-counts')
       .then((response) => {
         setTeamVoteCounts(response.data);
         const maxCount = Math.max(...response.data.map(teamCount => teamCount.count));
@@ -25,7 +25,7 @@ function Result() {
   }, []);
 
   return (
-    <div>
+    <div className='list-container'>
       <div className="elements">
         <h2>Votes Count</h2>
         <Link to="/admin">
