@@ -1,7 +1,7 @@
 // login.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import '../components/login.css';
 
 
@@ -19,7 +19,7 @@ function Register() {
   };
   const handleSubmit=(e)=>{
     e.preventDefault()
-    axios.post("https://vote-gijv.onrender.com/login",{username,password})
+    axios.post("http://localhost:3001/login",{username,password})
     .then(result=>{
       console.log(result)
       if(result.data==="success"){
@@ -60,7 +60,10 @@ function Register() {
           onChange={handlePasswordChange}
         />
         </div>
-        <button className='submit-button' type='submit'>Login</button>
+        <button className='submit-button' type='submit'>Login</button><br/>
+        <Link to='/' style={{color:'white', textDecoration:'none'}}>
+          Home
+        </Link>
       </form>
     </div>
   );
