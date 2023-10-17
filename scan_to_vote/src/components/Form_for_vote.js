@@ -14,7 +14,7 @@ function FormForVote() {
   useEffect(() => {
     // Fetch the list of teams from your server
     axios
-      .get("https://vote-gijv.onrender.com/getTeams")
+      .get("http://localhost:3001/getTeams")
       .then((response) => setTeams(response.data))
       .catch((error) => console.error(error));
   }, []);
@@ -62,14 +62,14 @@ function FormForVote() {
     };
 
     axios
-      .post("https://vote-gijv.onrender.com/check", {ipAddress})
+      .post("http://localhost:3001/check", {ipAddress})
       .then((result) => {
         if (result.data === "Record Exists") {
           console.log("Already Exists Data")
           navigate('/failure');
         }else {
           axios
-          .post("https://vote-gijv.onrender.com/getdata", data)
+          .post("http://localhost:3001/getdata", data)
           .then((result) => {
             console.log(result.data);
             navigate('/success');
@@ -126,6 +126,9 @@ function FormForVote() {
         <button className="submit-button" type="submit">
           Submit
         </button><br />
+        <Link to="/" style={{textDecoration:'none', color:'white'}}>
+        Home
+        </Link>
 
       </form>
     </div>
