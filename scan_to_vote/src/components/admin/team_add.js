@@ -8,7 +8,7 @@ function Team_edit() {
 
   const handleSubmit=(e)=>{
       e.preventDefault()
-      axios.post("http://localhost:3001/teamadd",{teamname})
+      axios.post("https://vote-gijv.onrender.com/teamadd",{teamname})
       .then(result=>{console.log(result)
         navigate('/admin')
       })
